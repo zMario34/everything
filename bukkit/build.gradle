@@ -8,15 +8,10 @@ repositories {
 
 shadowJar {
     archiveFileName = 'everything-bukkit.jar'
-
-    relocate 'net.kyori.adventure', 'tech.zmario.everything.libraries.adventure'
-    relocate 'net.kyori.examination', 'tech.zmario.everything.libraries.adventure.examination'
-    relocate 'net.byteflux.libby', 'tech.zmario.everything.libraries.libby'
-    relocate 'fr.minuskube.netherboard', 'tech.zmario.everything.libraries.netherboard'
 }
 
 dependencies {
-    implementation "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT"
+    compileOnly "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT"
     compileOnly 'com.mojang:authlib:1.5.21'
     compileOnly 'de.tr7zw:item-nbt-api-plugin:2.12.2'
 
@@ -24,6 +19,7 @@ dependencies {
     implementation 'com.github.Revxrsal.Lamp:bukkit:3.1.9'
     implementation 'net.byteflux:libby-bukkit:1.3.0'
     implementation 'fr.minuskube:netherboard-bukkit:1.2.3'
+    implementation 'fr.minuskube:netherboard-core:1.2.3'
 
     api project(':api')
 }

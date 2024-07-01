@@ -16,10 +16,14 @@ import java.util.List;
 
 public class MessageUtils {
 
-    public static BukkitAudiences BUKKIT_AUDIENCES = null;
+    public static BukkitAudiences bukkitAudiences;
+
+    private MessageUtils() {
+        throw new UnsupportedOperationException("This class cannot be instantiated");
+    }
 
     public static void sendTitle(Player player, Component title, Component subtitle, int fadeIn, int stay, int fadeOut) {
-        Audience audience = BUKKIT_AUDIENCES.player(player);
+        Audience audience = bukkitAudiences.player(player);
 
         audience.showTitle(Title.title(title, subtitle,
                 Title.Times.times(Duration.ofSeconds(fadeIn), Duration.ofSeconds(stay), Duration.ofSeconds(fadeOut))));
@@ -30,7 +34,7 @@ public class MessageUtils {
     }
 
     public static void sendActionBar(Player player, Component message) {
-        Audience audience = BUKKIT_AUDIENCES.player(player);
+        Audience audience = bukkitAudiences.player(player);
 
         audience.sendActionBar(message);
     }
@@ -40,7 +44,7 @@ public class MessageUtils {
     }
 
     public static void sendMessage(CommandSender sender, Component message) {
-        Audience audience = BUKKIT_AUDIENCES.sender(sender);
+        Audience audience = bukkitAudiences.sender(sender);
 
         audience.sendMessage(message);
     }

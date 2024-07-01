@@ -23,7 +23,7 @@ public class MapLoaderFactory {
      * @param gameHandler the GameHandler instance
      */
     public static void initialize(GameHandler gameHandler) {
-        if (gameHandler.getEverything().getServer().getPluginManager().isPluginEnabled("SlimeWorldManager"))
+        if (gameHandler.getEverything().getPlugin().getServer().getPluginManager().isPluginEnabled("SlimeWorldManager"))
             registerMapLoader(new SlimeMapLoader(gameHandler, "file"));
 
         registerMapLoader(new BukkitMapLoader(gameHandler));

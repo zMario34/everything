@@ -1,10 +1,5 @@
 shadowJar {
     archiveFileName = 'everything-api.jar'
-
-    relocate 'com.google.gson', 'tech.zmario.everything.libraries.gson'
-    relocate 'net.kyori.adventure', 'tech.zmario.everything.libraries.adventure'
-    relocate 'net.kyori.examination', 'tech.zmario.everything.libraries.adventure.examination'
-    relocate 'net.byteflux.libby', 'tech.zmario.everything.libraries.libby'
 }
 
 dependencies {
@@ -14,7 +9,7 @@ dependencies {
     compileOnly "org.yaml:snakeyaml:2.2"
     compileOnly 'com.google.guava:guava:32.1.2-jre'
     
-    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'com.google.code.gson:gson:2.8.9'
 }
 
 processResources {

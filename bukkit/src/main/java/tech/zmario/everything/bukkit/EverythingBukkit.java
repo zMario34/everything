@@ -16,6 +16,7 @@ import tech.zmario.everything.api.scheduler.Scheduler;
 import tech.zmario.everything.bukkit.interactiveitem.data.InteractiveItemRegistry;
 import tech.zmario.everything.bukkit.scheduler.BukkitScheduler;
 import tech.zmario.everything.bukkit.scoreboard.registry.ScoreboardRegistry;
+import tech.zmario.everything.bukkit.utils.MessageUtils;
 import tech.zmario.everything.bukkit.utils.Utils;
 
 import java.io.File;
@@ -33,7 +34,7 @@ public final class EverythingBukkit implements EverythingLibrary {
     private final BukkitScheduler scheduler;
     private final InteractiveItemRegistry interactiveItemRegistry;
     private final ScoreboardRegistry scoreboardRegistry;
-    private final AudienceProvider audiences;
+    private final BukkitAudiences audiences;
     private final AddonManager addonManager;
     private final BukkitCommandHandler commandHandler;
     private final CooldownsManager cooldownsManager;
@@ -75,6 +76,8 @@ public final class EverythingBukkit implements EverythingLibrary {
 
         interactiveItemRegistry.init(this);
         addonManager.loadAddons();
+
+        MessageUtils.bukkitAudiences = audiences;
 
         registerService(EverythingLibrary.class, this);
 
