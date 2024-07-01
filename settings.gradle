@@ -1,0 +1,3 @@
+rootProject.name = 'everything'
+
+include  'api', 'bukkit', 'bukkit-minigames'

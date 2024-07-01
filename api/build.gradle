@@ -1,0 +1,27 @@
+shadowJar {
+    archiveFileName = 'everything-api.jar'
+
+    relocate 'com.google.gson', 'tech.zmario.everything.libraries.gson'
+    relocate 'net.kyori.adventure', 'tech.zmario.everything.libraries.adventure'
+    relocate 'net.kyori.examination', 'tech.zmario.everything.libraries.adventure.examination'
+    relocate 'net.byteflux.libby', 'tech.zmario.everything.libraries.libby'
+}
+
+dependencies {
+    compileOnly "com.zaxxer:HikariCP:4.0.3"
+    compileOnly 'io.lettuce:lettuce-core:6.3.1.RELEASE'
+    compileOnly 'org.mongodb:mongodb-driver-sync:4.11.1'
+    compileOnly "org.yaml:snakeyaml:2.2"
+    compileOnly 'com.google.guava:guava:32.1.2-jre'
+    
+    implementation 'com.google.code.gson:gson:2.8.8'
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}

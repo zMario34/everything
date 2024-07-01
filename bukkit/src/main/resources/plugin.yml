@@ -1,0 +1,4 @@
+name: everything
+version: '${version}'
+main: tech.zmario.everything.bukkit.BukkitBootstrap
+author: zMario
